@@ -44,7 +44,6 @@
                 basado en una sintaxis de XML.</h3>
         </div>
 
-
         <section>
             <article>
                 <h3>Filter</h3>
@@ -585,12 +584,332 @@ filter: sepia(100%);</code></pre>
                 </svg>
 
             </article>
+<article>
+                <h3>Path</h3>
+                <p>Probablemente el elemento &lt;svg&gt; más versátil y avanzado, ya que se utiliza para definir una
+                    ruta.</p>
+                <p>Se usa para dibujar figuras avanzadas combinadas con líneas, curvas, arcos, etc. con o sin relleno
+                </p>
+
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;path path d="M [entero] a [entero], L [entero] a [entero],  T [entero] a [entero]
+    H [entero], V [entero], S [entero, entero, entero, entero], Q [entero, entero, entero, entero], Z"
+    style=fill:(color); stroke:(color); stroke-width:(px)/&gt;</code></pre>
+                <ul>
+                    <li><span>M(x,y)</span>: <i>move to</i>. El comando aparece al comienzo de las rutas para
+                        especificar dónde debe comenzar el dibujo.
+                        </br>Si el cursor ya estaba en algún lugar de la página, no se traza ninguna línea para conectar
+                        las dos posiciones.</li>
+                    <li><span>L(x,y)</span>: <i>line to</i>. Dibuja una línea desde la posición actual a una nueva
+                        posición.</li>
+                    <li><span>H(x)</span>: dibuja una línea horizontal. Solo toma un parámetro ya que solo se mueven en
+                        una dirección.</li>
+                    <li><span>V(y)</span>: dibuja una línea vertical. Solo toma un parámetro ya que solo se mueven en
+                        una dirección.</li>
+                    <li><span>C(x1, y1, x2, y2, x, y)</span>: curva de Bézier, la cual se transfiere desde la pendiente
+                        establecida al principio de la línea, hasta la pendiente en el otro extremo.
+                        <dd>
+                    <li type='circle'><span>(x1, y1)</span>: punto de control para el inicio de la curva.</li>
+                    <li type='circle'><span>(x2, y2) </span>: punto de control para el final de la curva.</li>
+                    <li type='circle'><span>(x, y) </span>: especifica dónde debe terminar la línea.</li>
+                    </dd>
+                    <li><span>S(x2, y2, x, y)</span>: establece el comienzo de la línea en el eje y.</li>
+                    <li><span>Q(x1, y1, x, y)</span>: establece el final de la línea en el eje x. </li>
+                    <li><span>T(x,y)</span>: atajo que mira el punto de control utilizado en una curva de Bézier e
+                        infiere uno nuevo a partir de él.
+                        </br>
+                        Esto significa que después del primer punto de control, se pueden crear formas bastante
+                        complejas especificando solo puntos finales. </li>
+                    <li><span>A(rx, ry, x-axis-rotation, large-arc-flag, sweep-flag x,y)</span>: crea un arco. </li>
+                    <dd>
+                        <li type='circle'><span>(rx, ry)</span>: semiejes de la elipse que pasa por el punto inicial y
+                            el final.</li>
+                        <li type='circle'><span>(x-axis-rotation)</span> rotación del eje x, inclinación de la elipse
+                            (entre 0 y 360 grados).</li>
+                        <li type='circle'><span>(large-arc-flag)</span>: arco grande. Determina qué parte de la curva
+                            será dibujada. Valores: 1 – para la parte grande de la curva y 0 para la parte pequeña.</li>
+                        <li type='circle'><span>(sweep-flag)</span>: controla la dirección del "lapiz" al dibujar el
+                            arco.</li>
+                        <li type='circle'><span>(x, y) </span>: punto final del arco.</li>
+                    </dd>
+                    <li><span>Z</span>: Este comando dibuja una línea recta desde la posición actual hasta el primer
+                        punto de la ruta. Suele colocarse al final.</li>
+                    <li><span>style</span>: permite agregar atributos relacionados con el estilo del objeto. Valores que
+                        puede adquirir:</li>
+                    </li>
+                    <dd>
+                        <li type='circle'><span>fill</span>: establece el color de relleno de la forma.</li>
+                        <li type='circle'><span>stroke-width</span>: establece la anchura de la línea.</li>
+                        <li type='circle'><span>stroke</span>: establece el color de la línea.</li>
+                    </dd>
+                </ul>
+
+                <h4>Ejemplo 1. Elipses con Path:</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width="300" height="130";>
+    &lt;path d="M 50,65 A 50,25 0 1,0 200,65 A 50,25 0 1,0 50,65" fill="none" stroke="DodgerBlue" stroke-width="3"/>
+    &lt;path d="M 250,65 A 50,25 0 1,1 100,65 A 50,25 0 1,1 250,65" fill="none" stroke="MediumVioletRed" stroke-width="3"/>
+&lt;/svg&gt; </code></pre>
+
+                <svg width="300" height="130">
+                    <path d="M 50,65 A 50,25 0 1,0 200,65 A 50,25 0 1,0 50,65" fill="none" stroke="DodgerBlue"
+                        stroke-width="3" />
+                    <path d="M 250,65 A 50,25 0 1,1 100,65 A 50,25 0 1,1 250,65" fill="none" stroke="MediumVioletRed"
+                        stroke-width="3" />
+                </svg>
+
+                <h4>Ejemplo 2. Camino cerrado.</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+    width="140" height="110" viewBox="0 0 140 110">
+    &lt;path d="M 50,20 C 80,10 120,10 150,20 S 220,50 200,90 Q 170,120 120,90 T 50,20"
+    fill="Salmon" stroke="DarkSlateGray" stroke-width="3" />
+&lt;/svg&gt; </code></pre>
+
+                <svg width="300" height="130">
+                    <path d="M 50,20 C 80,10 120,10 150,20 S 220,50 200,90 Q 170,120 120,90 T 50,20" fill="Salmon"
+                        stroke="DarkSlateGray" stroke-width="3" />
+                </svg>
+
+                <h4>Ejemplo 3. Triangulo</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg heigth="210" width="400">
+    &lt;path d="M150 0 L75 200 L225 200 Z" />
+&lt;/svg&gt; </code></pre>
+
+                <svg heigth="210" width="400">
+                    <path d="M150 0 L75 200 L225 200 Z" />
+                </svg>
+            </article>
+            <article>
+                <h3>Text</h3>
+                <p>Se usa para definir texto.</p>
+
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;text x=[entero] y=[entero]
+    style=font-family: [nombreFuente]; font-size:[entero];
+    stroke:(color); fill:(color) transform = rotate(entero, entero, entero)/></code></pre>
+
+
+                <ul>
+                    <li><span>x</span>: define la coordenada <span>x</span> donde comienza.
+                    <li><span>y</span>: define la coordenada <span>y</span>: donde comienza.
+                    <li><span>&lt;tspan&gt;</span>: etiqueta que permite crear subgrupos del elemento.
+                        <dd>
+                    <li type='circle'><span>fill</span>: establece el color de relleno.</li>
+                    <li type='circle'><span>font-family</span>: familia de la fuente.</li>
+                    <li type='circle'><span>font-size</span>: tamaño de la fuente.</li>
+                    <li type='circle'><span>stroke</span>: color de la fuente.</li>
+                    <li type='circle'><span>transform</span>: permite transformaciones al elemento y sus hijos.</li>
+                    </dd>
+                </ul>
+
+                <h4>Ejemplo 1. Texto 1:</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width="600px" height="50px">
+    &lt;text x="10"  y="20"
+    style="font-family: 'Arial', sans-serif; font-size: 24;
+    fill: #3366cc; stroke: #ff9900; stroke-width: 1;" transform="skewX(20)">
+    Texto escrito con svg</text>
+&lt;/svg&gt; </code></pre>
+
+                <svg width="600px" height="50px">
+                    <text x="10" y="20" style="font-family: 'Arial', sans-serif; font-size: 24;
+                        fill: #3366cc; stroke: #ff9900; stroke-width: 1;" transform="skewX(20)">
+                        Texto escrito con svg
+                    </text>
+                </svg>
+
+                <h4>Ejemplo 2. Etiqueta &lt;tspan&gt;:</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg height="90" width="200" text x="10" y="30" style="font-family: 'Georgia', serif; font-size: 18; fill: #990000;">Primera línea
+    &lt;tspan x="10" dy="25" style="font-size: 14; fill: #336699;">Segunda línea&lt;/tspan>
+    &lt;tspan x="10" dy="25" style="font-size: 16; fill: #cc0066;">Tercera línea&lt;/tspan>
+&lt;/svg&gt; </code></pre>
+
+                <svg height="90" width="200">
+                    <text x="10" y="30" style="font-family: 'Georgia', serif; font-size: 18; fill: #990000;">Primera
+                        línea
+                        <tspan x="10" dy="25" style="font-size: 14; fill: #336699;">Segunda línea</tspan>
+                        <tspan x="10" dy="25" style="font-size: 16; fill: #cc0066;">Tercera línea</tspan>
+                    </text>
+                </svg>
+
+
+            </article>
+            <article>
+                <h3>Stroke</h3>
+                <p>Define el color de la línea, texto o trazado de un elemento.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;stroke x1=[number] y1=[number] x2=[number] y2=[number]
+    stroke-width=[number] stroke=(color) 
+    stroke-linecap=(butt|square|round) 
+    stroke-linejoin=(miter|round|biselado)
+    stroke-dasharray=[entero, entero]/></code></pre>
+                <ul>
+                    <li><span>stroke</span>: define el color de la línea, texto o trazado de un elemento.
+                    <li><span>stroke-width</span>: define el grosor de la línea, texto o trazado de un elemento.
+                    <li><span>stroke-linecap</span>: establece la forma de los extremos de los segmentos.
+                        <dd>
+                    <li type='circle'><span>stroke-linecap="butt"</span>: extremo recto.</li>
+                    <li type='circle'><span>stroke-linecap="square"</span>: extremo recto (pero la línea se prolonga
+                        como en el caso de la forma redondeada).</li>
+                    <li type='circle'><span>stroke-linecap="round"</span>: extremo redondeado (la línea se prolonga
+                        debido a la forma redondeada).</li>
+                    </dd>
+                    <li><span>stroke-linejoin</span>: establece la forma de los vértices de las líneas quebradas.
+                        <dd>
+                    <li type='circle'><span>stroke-linejoin="miter"</span>: en punta.</li>
+                    <li type='circle'><span>stroke-linejoin="round"</span>: redondeado.</li>
+                    <li type='circle'><span>stroke-linejoin="biselado"</span>: con forma de bisel(borde que está cortado
+                        oblicuamente, no en ángulo recto).</li>
+                    </dd>
+                    <li><span>stroke-dasharray</span>: define líneas discontínuas mediante una lista de números o
+                        porcentajes. Los porcentajes se refieren al espacio de dibujo disponible, no a la longitud de la
+                        línea.
+
+                </ul>
+
+                <h4>Ejemplo 1. Stroke-linecap.</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width="130" height="130">
+    &lt;line x1="10" y1="30" x2="120" y2="30"
+    stroke-width="20" stroke="#FF6347" stroke-linecap="butt" />
+    &lt;line x1="10" y1="70" x2="120" y2="70"
+    stroke-width="20" stroke="#32CD32" stroke-linecap="round" />
+    &lt;line x1="10" y1="110" x2="120" y2="110"
+    stroke-width="20" stroke="#4682B4" stroke-linecap="square" />
+&lt;/svg&gt; </code></pre>
+
+                <svg width="130" height="130">
+                    <line x1="10" y1="30" x2="120" y2="30" stroke-width="20" stroke="#FF6347" stroke-linecap="butt" />
+                    <line x1="10" y1="70" x2="120" y2="70" stroke-width="20" stroke="#32CD32" stroke-linecap="round" />
+                    <line x1="10" y1="110" x2="120" y2="110" stroke-width="20" stroke="#4682B4"
+                        stroke-linecap="square" />
+                </svg>
+
+                <h4>Ejemplo 2. Stroke-linejoin.</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width="130" height="130">
+    &lt;polyline points="10,50 65,20 120,50" fill="none"
+    stroke-width="15" stroke="#4B0082" stroke-linejoin="round" />
+    &lt;polyline points="10,85 65,55 120,85" fill="none"
+    stroke-width="15" stroke="#8B4513" stroke-linejoin="bevel" />
+    &lt;polyline points="10,120 65,90 120,120" fill="none"
+    stroke-width="15" stroke="#228B22" stroke-linejoin="miter" />
+&lt;/svg&gt; </code></pre>
+
+                <svg width="130" height="130">
+                    <polyline points="10,50 65,20 120,50" fill="none" stroke-width="15" stroke="#4B0082"
+                        stroke-linejoin="round" />
+                    <polyline points="10,85 65,55 120,85" fill="none" stroke-width="15" stroke="#8B4513"
+                        stroke-linejoin="bevel" />
+                    <polyline points="10,120 65,90 120,120" fill="none" stroke-width="15" stroke="#228B22"
+                        stroke-linejoin="miter" />
+                </svg>
+
+                <h4>Ejemplo 3. Stroke-dasharray.</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width="260" height="180">
+    &lt;line x1="10" y1="50" x2="250" y2="50"
+    stroke-width="15" stroke="#00CED1" stroke-dasharray="20 20"/>
+    &lt;line x1="10" y1="90" x2="250" y2="90"
+    stroke-width="15" stroke="#1E90FF" stroke-dasharray="40 40"/>
+    &lt;line x1="10" y1="130" x2="250" y2="130"
+    stroke-width="10" stroke="#DD93F1" stroke-dasharray="40% 20%"/>
+    &lt;line x1="10" y1="170" x2="250" y2="170"
+    stroke-width="15" stroke="#4682B4" stroke-dasharray="20% 10% 5% 10%"/>
+    &lt;line x1="10" y1="170" x2="250" y2="170"/>
+&lt;/svg&gt; </code></pre>
+
+                <svg width="260" height="180">
+                    <line x1="10" y1="50" x2="250" y2="50" stroke-width="15" stroke="#00CED1"
+                        stroke-dasharray="20 20" />
+                    <line x1="10" y1="90" x2="250" y2="90" stroke-width="15" stroke="#1E90FF"
+                        stroke-dasharray="40 40" />
+                    <line x1="10" y1="130" x2="250" y2="130" stroke-width="10" stroke="#DD93F1"
+                        stroke-dasharray="40% 20%" />
+                    <line x1="10" y1="170" x2="250" y2="170" stroke-width="15" stroke="#4682B4"
+                        stroke-dasharray="20% 10% 5% 10%" />
+                    <line x1="10" y1="170" x2="250" y2="170" />
+                </svg>
+
+            </article>
+            <article>
+                <h3>Gradiente Lineal</h3>
+                <p>Transición suave de un color a otro, define un gradiente lineal. Aparece dentro de la etiqueta
+                    &lt;defs&gt;.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-html">&lt;linearGradient x1=(%) y1=(%) x2=(%) y2=(%)/></code></pre>
+                <ul>
+                    <li><span>gradientes horizontales</span>: se crean cuando <span>y1</span> y <span>y2</span> son
+                        iguales y <span>x1</span> y <span>x2</span> son diferentes.
+                    <li><span>gradientes verticales</span>: se crean cuando <span>x1</span> y <span>x2</span> son
+                        iguales y <span>y1</span> y <span>y2</span> son diferentes.
+                    <li><span>gradientes angulares</span>: se crean cuando <span>x1</span> y <span>x2</span> son
+                        diferentes y <span>y1</span> y <span>y2</span> también.
+                </ul>
+
+                <h4>Ejemplo 1. Gradiente Lineal.</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg height="150" width="400">
+    &lt;defs>
+        &lt;linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+        &lt;stop offset="0%" style="stop-color:rgb(173,216,230);stop-opacity:1"/>
+        &lt;stop offset="100%" style="stop-color:rgb(0,191,255);stop-opacity:1"/>
+        &lt;/linearGradient>
+    &lt;/defs>
+    &lt;ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)"/>
+&lt;/svg&gt; </code></pre>
+
+                <svg height="150" width="400">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:rgb(173,216,230);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(0,191,255);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+                </svg>
+            </article>
+            <article>
+                <h3>Gradient Radial</h3>
+                <p>Transición suave de un color a otro, define un gradiente radial. Aparece dentro de la etiqueta
+                    &lt;defs&gt;.</p>
+                <h4>Sintaxis</h4>
+                <pre
+                    class="line-numbers"><code class="language-html">&lt;radialGradient cx=(%) cy=(%) r=(%) fx=(%) fy=(%)/></code></pre>
+                <ul>
+                    <li><span>gradientes horizontales</span>: se crean cuando <span>y1</span> y <span>y2</span> son
+                        iguales y <span>x1</span> y <span>x2</span> son diferentes.
+                    <li><span>gradientes verticales</span>: se crean cuando <span>x1</span> y <span>x2</span> son
+                        iguales y <span>y1</span> y <span>y2</span> son diferentes.
+                    <li><span>gradientes angulares</span>: se crean cuando <span>x1</span> y <span>x2</span> son
+                        diferentes y <span>y1</span> y <span>y2</span> también.
+                </ul>
+
+                <h4>Ejemplo. Gradiente Radial.</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg height="150" width="500">
+    &lt;defs>
+        &lt;radialGradient id="grad3" cx="30%" cy="40%" r="40%" fx="50%" fy="50%">
+        &lt;stop offset="0%" style="stop-color:rgb(255,255,255);
+        stop-opacity:0" />
+        &lt;stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1"/>
+        &lt;/radialGradient>
+    &lt;/defs>
+    &lt;ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad2)"/>
+&lt;/svg&gt; </code></pre>
+
+                <svg height="150" width="500">
+                    <defs>
+                        <radialGradient id="grad3" cx="30%" cy="40%" r="40%" fx="50%" fy="50%">
+                            <stop offset="0%" style="stop-color:rgb(255,255,255); stop-opacity:0" />
+                            <stop offset="100%" style="stop-color:rgb(255,0,0); stop-opacity:1" />
+                        </radialGradient>
+                    </defs>
+                    <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad3)" />
+                </svg>
+
+            </article>
 </section>
     </main>
     <footer>
         <div>Jaime Rabasco Ronda</div>
-        <a href="https://x.com/jaimerr" class="social"><img src="icon/x-twitter.svg" alt="Twitter"></a>
+        <a href="https://twitter.com/jaimerr" class="social"><img src="icon/x-twitter.svg" alt="Twitter"></a>
         <a href="https://github.com/jaimerabasco" class="social"><img src="icon/github.svg" alt="GitHub"></a>
     </footer>
 </body>
+
 </html>
