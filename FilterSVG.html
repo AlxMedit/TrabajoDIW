@@ -44,6 +44,7 @@
                 basado en una sintaxis de XML.</h3>
         </div>
 
+
         <section>
             <article>
                 <h3>Filter</h3>
@@ -331,7 +332,260 @@ filter: sepia(100%);</code></pre>
                 <img class="filter_SVG_brightness_opacity_grayscale_saturateUse filter_SVG_original"
                     src="./img/filter_svg_cerveza.jpg">
             </article>
-        </section>
+       
+            <article>
+                <h3>SVG</h3>
+                <p>Un SVG es una imagen vectorial, lo que significa que la podemos escalar a cualquier tamaño sin tener
+                    problemas de enfoque,
+                    como nos podría pasar con las imágenes con formato PNG o JPG, por ejemplo.
+                    Es ideal para trabajar con logos o iconos que a menudo tienen formas y líneas sencillas.
+                    Además, pesan pocos megas y permiten una definición mayor en tamaños reducidos.</p>
+            </article>
+            <h3>Figuras básicas</h3>
+            <article>
+                <h3>Rectángulo</h3>
+                <p>Elemento usado para crear formas rectangulares.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;rect x=[entero], y=[entero], rx=[entero], ry=[entero],
+    width=(px), height=(px), 
+    style=fill:(color); stroke:(color); stroke-width:(px)/&gt;</code></pre>
+                <p>Propiedades:</p>
+                <ul>
+                    <li><span>x=[entero]</span>: abcisa de la esquina superior izquierda del rectángulo.</li>
+                    <li><span>y=[entero]</span>: ordenada de la esquina superior izquierda del rectángulo.</li>
+                    <li><span>rx=[entero]</span>: define el radio horizontal de las esquinas haciendo que adquieran
+                        forma redondeada.</li>
+                    <li><span>ry=[entero]</span>: define el radio vertical de las esquinas haciendo que adquieran forma
+                        redondeada.</li>
+                    <li><span>width</span>: establece la anchura del objeto.</li>
+                    <li><span>height</span>: establece la altura del objeto.</li>
+                    <li><span>style</span>: permite agregar atributos relacionados con el estilo del objeto. Valores que
+                        puede adquirir:</li>
+                    <dd>
+                        <li type="circle"><span>fill</span>: establece el color del relleno.</li>
+                        <li type="circle"><span>stroke-width</span>: establece la anchura del borde del rectángulo.</li>
+                        <li type="circle"><span>stroke</span>: establece el color del borde del rectángulo.</li>
+                    </dd>
+                </ul>
+                <h4>Ejemplo 1. Rectángulo estándar:</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width="135" height="115">
+    &lt;rect x="15" y="15" width="115" height="90" style="fill:#7BF30A"/>
+&lt;/svg&gt; </code></pre>
+
+                <svg width="135" height="115">
+                    <rect x="15" y="15" width="115" height="90" style="fill:#7BF30A" />
+                </svg>
+
+                <h4>Ejemplo 2. Rectángulo esquinas redondeadas</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width="300" height="150">
+    &lt;rect width="200" height="120" x="50" y="15" rx="25" ry="25"
+    style="fill:rgb(76,175,80);stroke-width:6;stroke:rgb(255, 87, 34)" />
+&lt;/svg&gt; </code></pre>
+
+                <svg width="300" height="150">
+                    <rect x="15" y="15" width="200" height="120" rx="25" ry="25"
+                        style="fill:rgb(76,175,80);stroke-width:6;stroke:rgb(255, 87, 34)" />
+                </svg>
+            </article>
+
+            <article>
+                <h3>Círculo</h3>
+                <p>Elemento usado para crear formas circulares.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;circle r=[entero], cx=[entero], cy=[entero], 
+    width=(px), height=(px), 
+    style=fill:(color); stroke:(color); stroke-width:(px)/&gt;</code></pre>
+                <p>Algunas de sus propiedades son: </p>
+                <ul>
+                    <li><span>width</span>: establece la anchura del objeto.</li>
+                    <li><span>height</span>: establece la altura del objeto.</li>
+                    <li><span>r</span>: establece el radio del círculo.</li>
+                    <li><span>cx</span>: establece la coordenada <span>x</span> del centro del círculo. </li>
+                    Si se omite, su valor por defecto es 0.</li>
+                    <li><span>cy</span>: establece la coordenada <span>y</span> del centro del círculo. </li>
+                    Si se omite, su valor por defecto es 0.</li>
+                    <li><span>fill</span>: establece el color del relleno.</li>
+                    <li><span>stroke-width</span>: establece la anchura del borde del círculo.</li>
+                    <li><span>stroke</span>: establece el color del borde del círculo.</li>
+                    </dd>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width=200 height=200;>
+    &lt;circle width="100" height="100" 
+    stroke="blue" stroke-width="2" fill="red" />
+&lt;/svg&gt; </code></pre>
+
+                <svg width="200" height="200">
+                    <circle cx="100" cy="100" r="80" stroke="blue" stroke-width="2" fill="red" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+            </article>
+            <article>
+                <h3>Elipse</h3>
+                <p>Figura parecida a un círculo. La diferencia estriba en que mientras que en el círculo las coordenadas
+                    del radio <span>x</span> y <span>y</span> son iguales, en la elipse estos valores son diferentes.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;ellipse rx=[entero], ry=[entero], cx=[entero], cy=[entero], 
+    width=(px), height=(px), 
+    style=fill:(color); stroke:(color); stroke-width:(px)/&gt;</code></pre>
+                <ul>
+                    <li><span>width</span>: establece la anchura del objeto.</li>
+                    <li><span>height</span>: establece la altura del objeto.</li>
+                    <li><span>rx</span>: establece la coordenada <span>x</span> del radio horizontal.</li>
+                    <li><span>ry</span>: establece la coordenada <span>y</span> del radio vertical.</li>
+                    <li><span>cx</span>: establece la coordinada <span>x</span> del centro de la elipse. </li>
+                    <li><span>cy</span>: establece la coordinada <span>y</span> del centro de la elipse. </li>
+                    <li><span>style</span>: permite agregar atributos relacionados con el estilo del objeto. Valores que
+                        puede adquirir:</li>
+                    </li>
+                    <dd>
+                        <li type='circle'><span>fill</span>: establece el color del relleno.</li>
+                        <li type='circle'><span>stroke-width</span>: establece la anchura del borde del círculo.</li>
+                        <li type='circle'><span>stroke</span>: establece el color del borde del círculo.</li>
+                    </dd>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width=200 height=600;>
+    &lt;ellipse cx="300" cy="100" rx="150" ry="75"
+    style="fill:lightgreen;stroke:orange;stroke-width:5" />
+&lt;/svg&gt; </code></pre>
+
+                <svg height="200" width="600">
+                    <ellipse cx="300" cy="100" rx="150" ry="75" style="fill:lightgreen;stroke:orange;stroke-width:5" />
+                </svg>
+            </article>
+            <article>
+                <h3>Línea</h3>
+                <p>Elemento usado para dibujar una línea.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;line x1=[entero], y1=[entero], x2=[entero], y2=[entero], 
+    width=(px), height=(px), 
+    style=fill:(color); stroke:(color); stroke-width:(px)/&gt;</code></pre>
+                <ul>
+                    <li><span>x1=[entero]</span>: establece el comienzo de la línea en el eje x.</li>
+                    <li><span>y1=[entero]</span>: establece el comienzo de la línea en el eje y.</li>
+                    <li><span>x2=[entero]</span>: establece el final de la línea en el eje x.</li>
+                    <li><span>y2=[entero]</span>: establece el final de la línea en el eje y.</li>
+                    <li><span>width</span>: establece la anchura del objeto.</li>
+                    <li><span>height</span>: establece la altura del objeto.</li>
+                    <li><span>style</span>: permite agregar atributos relacionados con el estilo del objeto. Valores que
+                        puede adquirir:</li>
+                    <dd>
+                        <li type="circle"><span>stroke-width</span>: establece la anchura de la línea.</li>
+                        <li type="circle"><span>stroke</span>: establece el color de la línea.</li>
+                    </dd>
+                </ul>
+
+                <h4>Ejemplos:</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width=210 height=500;>
+    &lt;line x1="120" y1="50" x2="50" y2="250"
+    style="stroke:peru;stroke-width:3;stroke-dasharray:5,5"/>
+&lt;/svg&gt; </code></pre>
+
+                <svg height="210" width="500">
+                    <line x1="120" y1="50" x2="50" y2="250" style="stroke:peru;stroke-width:3;stroke-dasharray:5,5" />
+                </svg>
+            </article>
+            <article>
+                <h3>Polígono</h3>
+                <p>El elemento polygon define una forma cerrada que consta de un conjunto de segmentos.
+                    Se crean con líneas rectas las cuales se encuentran conectadas ya que el último punto está conectado
+                    con el primero
+                    formando así una figura cerrada.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;polygon points= x1[entero], y1=[entero], x2=[entero], y2=[entero], 
+    width=(px), height=(px), 
+    style=fill:(color); stroke:(color); stroke-width:(px)/&gt;</code></pre>
+                <ul>
+                    <li><span>width</span>: establece la anchura del objeto.</li>
+                    <li><span>height</span>: establece la altura del objeto.</li>
+                    <li><span>points:[ coordx1, coordy1, coordx2, coordy2]</span>: define la lista de puntos (pares de
+                        <span>x</span> y <span>y</span>)
+                        necesarios para dibujar el polígono.
+                    </li>
+                    <li><span>style</span>: permite agregar atributos relacionados con el estilo del objeto.
+                        </br>Ejemplos:
+                    </li>
+                    <dd>
+                        <li type='circle'><span>fill</span>: establece el color del relleno.</li>
+                        <li type='circle'><span>stroke-width</span>: establece la anchura del borde.</li>
+                        <li type='circle'><span>stroke</span>: establece el color del borde.</li>
+                        <li type='circle'><span>fill-rule</span>: para controlar que se coloree un trozo que está fuera
+                            del trazado.
+                            Toma uno de estos dos valores: <span>evenodd</span> ( par o impar ) o <span>nonzero</span>.
+                        </li>
+                    </dd>
+                </ul>
+
+                <h4>Ejemplo 1. Polígono de 3 líneas:</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width=250 height=500;>
+    &lt;polygon points="150,50, 300, 50, 250, 200" 
+    style="fill:orange;stroke:blue;stroke-width:2"/>
+&lt;/svg&gt; </code></pre>
+
+                <svg height="250" width="500">
+                    <polygon points="150,50 300,50 250,200" style="fill:orange;stroke:blue;stroke-width:2" />
+                </svg>
+
+                <h4>Ejemplo 2 Polígono forma estrella (fill-rule: evenodd) y (fill-rule: nonzero):</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width=250 height=500;>
+    &lt;polygon points="100,0 42,180 196,70 4,70 158,180" fill-rule:"nonzero" />
+    &lt;polygon points="300,0 242,180 396,70 204,70 358,180" fill-rule:"evenodd" />
+&lt;/svg&gt; </code></pre>
+
+                <svg height="250" width="500">
+                    <polygon fill-rule="nonzero" stroke="red" points="100,0 42,180 196,70 4,70 158,180" />
+
+                    <polygon fill-rule="evenodd" stroke="red" points="300,0 242,180 396,70 204,70 358,180" />
+                </svg>
+
+            </article>
+            <article>
+                <h3>Polilínea</h3>
+                <p>Elemento polilínea es una forma básica SVG que crea líneas rectas que conectan varios puntos.
+                    Normalmente usado para dibujar un polígono abierto.
+
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;polyline points= x1[entero], y1=[entero], x2=[entero], y2=[entero], width=(px), height=(px), 
+    style=fill:(color); stroke:(color); stroke-width:(px)/&gt;</code></pre>
+                <ul>
+                    <li><span>points(x1,y1 x2,y2 x3,y3 ...)</span>: abcisas y ordenadas de los sucesivos puntos de la
+                        polilínea.</li>
+                    <li><span>style</span>: permite agregar atributos relacionados con el estilo del objeto. Valores que
+                        puede adquirir:</li>
+                    <dd>
+                        <li type='circle'><span>fill</span>: establece el color del relleno.</li>
+                        <li type='circle'><span>stroke-width</span>: establece la anchura del borde.</li>
+                        <li type='circle'><span>stroke</span>: establece el color del borde.</li>
+                        </li>
+                    </dd>
+                </ul>
+
+                <h4>Ejemplo 1. Polilínea abierta.</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width="140" height="110">
+    &lt;polyline points="0,200 100,50 100,150 200,0" fill="red" stroke="black" stroke-width="3"/>
+&lt;/svg&gt; </code>
+                </pre>
+
+                <svg height="250" width="500">
+                    <polyline points="0,200 100,50 100,150 200,0" fill="red" stroke="black" stroke-width="3" />
+                </svg>
+
+                <h4>Ejemplo 2. Polilínea cerrada.</h4>
+                <pre class="line-numbers"><code class="language-html">&lt;svg width="140" height="110">
+    &lt;polyline points="0,200 100,50 100,150 200,0, 0,200"fill="red" stroke="black" stroke-width="3"/>
+&lt;/svg&gt; </code></pre>
+
+                <svg height="250" width="500">
+                    <polyline points="0,200 100,50 100,150 200,0, 0,200" fill="red" stroke="black" stroke-width="3" />
+                </svg>
+
+            </article>
+</section>
     </main>
     <footer>
         <div>Jaime Rabasco Ronda</div>
