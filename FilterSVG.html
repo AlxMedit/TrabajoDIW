@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>TUTORIAL CSS3 - 2023/2024- Diseño de Interfaces Web - CFGS DAW - IES Gran Capitán</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TUTORIAL CSS3 - 2023/2024 - Diseño de Interfaces Web - CFGS DAW - IES Gran Capitán</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/Filter_SVG.css">
     <script src="js/prism.js"></script>
 </head>
+
 <body>
     <header>
         <h1><a href="index.html">TUTORIAL CSS3 - 2023/2024</a></h1>
@@ -21,7 +26,7 @@
         <ul>
             <li><a href="Bordes.html">Bordes</a></li>
             <li><a href="Fondos.html">Fondos</a></li>
-            <li><a href="Efectos_texto.html">Fuentes y Ef Texto</a></li>   
+            <li><a href="Efectos_texto.html">Fuentes y Ef Texto</a></li>
             <li><a href="Transformaciones.html">Transformac.</a></li>
             <li><a href="Transiciones.html">Transiciones</a></li>
             <li><a href="Animaciones.html">Animaciones</a></li>
@@ -34,96 +39,299 @@
     </nav>
     <main>
         <div>
-            <h2>TUTORIAL CSS3 - Bordes</h2>
-            <h3>Propiedades para modificar los bordes de los elementos de un documento HTML</h3>
+            <h2>TUTORIAL CSS3 - Filter y SVG</h2>
+            <h3>Propiedades para ajustar la representación de imágenes, fondos o bordes y formato de imagen vectorial 2D
+                basado en una sintaxis de XML.</h3>
         </div>
 
-    <section>
-        <article>
-            <h3>Svg_filter</h3>
-            <p>Indica que el tamaño del borde redondeado. Es importante definir un border-style para que el borde
-                se vea redondeado.</p>
-            <h4>Sintaxis</h4>
-            <pre class="line-numbers"><code class="language-css">border-radius: [Aqui va la sintaxis de cada propiedad];</code></pre>
-            <p>Admite de uno a cuatro valores, que son los siguientes: </p>
-            <ul>
-                <li>Un valor: se aplica a los cuatros lados.</li>
-                <li>Dos valores. se aplica el primero a arriba y abajo y el segundo a derecha e
-                    izquierda.</li>
-                <li>Tres valores: se aplica el <span>primero</span> a arriba,el segundo a derecha e izquierda y el
-                    tercero a abajo.</li>
-                <li>Cuatro valores: se aplica el primero a arriba, el segundo a la derecha, el tercero abajo y el cuarto
-                    a la izquierda.</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae velit laudantium adipisci esse voluptates deserunt eum ex, excepturi, amet, sequi praesentium fugiat fugit accusamus vel nostrum numquam neque repellat autem.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quisquam repellat earum recusandae ad voluptates necessitatibus alias eaque unde expedita, iste, at quibusdam tenetur quis voluptatibus harum culpa a porro.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, ad porro optio vel beatae rem quidem quasi blanditiis sint numquam ullam, maxime neque impedit, nobis id? Maxime, commodi! Commodi, quam?</p>
-            
-            <h4>Ejemplos:</h4>
-            <pre class="line-numbers" data-line="1"><code class="language-css">border-radius: 15px 10px 15px 10px;
-border-style: solid;
-border-width: 2px;
-border-color: black;</code></pre>
-		Aquí el resultado del ejemplo del código fuente indicado arriba. En el código fuente de los ejemplos no debe haber ninguna propiedad no explicada anteriormente. Es decir, si para el ejemplo necesitas border-style, border-width y/o border-color, estas propiedades deben ser explicadas con anterioridad
-        </article>
+        <section>
+            <article>
+                <h3>Filter</h3>
+                <p>Filter es una propiedad que se usa principalmente en imágenes y que nos permite realizar diferentes
+                    efectos como cambio de color, desenfoque, trabajar con el brillo, etc.
+                    Con muy pocas líneas de código, conseguimos efectos que normalmente se obtienen con un software de
+                    edición de imagenes.</p>
+            </article>
+            <article>
+                <h3>Blur</h3>
+                <p>Aplica un desenfoque Gaussiano a la imagen, el cual consiste en desenfocar una imagen mediante una
+                    función Gaussiana. El efecto mezcla ligeramente el color de los pixeles que estén vecinos el uno del
+                    otro en un mapa de
+                    bits (imagen). El efecto es similar al de una fotografía desenfocada.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: blur(px);</code></pre>
+                <p>Solo admite un parámetro: </p>
+                <ul>
+                    <li><span>radio</span>: define cuántos píxeles en la pantalla se combinan entre sí.</li>
+                </ul>
 
-        <article>
-            <h3>border-radius</h3>
-            <p>Indica que el tamaño del borde redondeado. Es importante definir un border-style para que el borde
-                se vea redondeado.</p>
-            <h4>Sintaxis</h4>
-            <pre class="line-numbers"><code class="language-css">border-radius: [Aqui va la sintaxis de cada propiedad];</code></pre>
-            <p>Admite de uno a cuatro valores, que son los siguientes: </p>
-            <ul>
-                <li>Un valor: se aplica a los cuatros lados.</li>
-                <li>Dos valores. se aplica el primero a arriba y abajo y el segundo a derecha e
-                    izquierda.</li>
-                <li>Tres valores: se aplica el <span>primero</span> a arriba,el segundo a derecha e izquierda y el
-                    tercero a abajo.</li>
-                <li>Cuatro valores: se aplica el primero a arriba, el segundo a la derecha, el tercero abajo y el cuarto
-                    a la izquierda.</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae velit laudantium adipisci esse voluptates deserunt eum ex, excepturi, amet, sequi praesentium fugiat fugit accusamus vel nostrum numquam neque repellat autem.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quisquam repellat earum recusandae ad voluptates necessitatibus alias eaque unde expedita, iste, at quibusdam tenetur quis voluptatibus harum culpa a porro.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, ad porro optio vel beatae rem quidem quasi blanditiis sint numquam ullam, maxime neque impedit, nobis id? Maxime, commodi! Commodi, quam?</p>
-            
-            <h4>Ejemplos:</h4>
-            <pre class="line-numbers"><code class="language-html">&lt;p&gt;Párrafo 1&lt;/p&gt;
-&lt;p&gt;Párrafo 2&lt;/p&gt;
-&lt;p&gt;Párrafo 3&lt;/p&gt;</code></pre>
-			Aquí el resultado del ejemplo del código fuente indicado arriba. En el código fuente de los ejemplos no debe haber ninguna propiedad no explicada anteriormente. Es decir, si para el ejemplo necesitas border-style, border-width y/o border-color, estas propiedades deben ser explicadas con anterioridad
-black;
-        </article>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: blur(5px);
+filter: blur(40px);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_blurUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_blurUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+            </article>
 
-        <article>
-            <h3>border-radius</h3>
-            <p>Indica que el tamaño del borde redondeado. Es importante definir un border-style para que el borde
-                se vea redondeado.</p>
-            <h4>Sintaxis</h4>
-            <pre class="line-numbers"><code class="language-css">border-radius: [Aqui va la sintaxis de cada propiedad];</code></pre>
-            <p>Admite de uno a cuatro valores, que son los siguientes: </p>
-            <ul>
-                <li>Un valor: se aplica a los cuatros lados.</li>
-                <li>Dos valores. se aplica el primero a arriba y abajo y el segundo a derecha e
-                    izquierda.</li>
-                <li>Tres valores: se aplica el <span>primero</span> a arriba,el segundo a derecha e izquierda y el
-                    tercero a abajo.</li>
-                <li>Cuatro valores: se aplica el primero a arriba, el segundo a la derecha, el tercero abajo y el cuarto
-                    a la izquierda.</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae velit laudantium adipisci esse voluptates deserunt eum ex, excepturi, amet, sequi praesentium fugiat fugit accusamus vel nostrum numquam neque repellat autem.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quisquam repellat earum recusandae ad voluptates necessitatibus alias eaque unde expedita, iste, at quibusdam tenetur quis voluptatibus harum culpa a porro.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, ad porro optio vel beatae rem quidem quasi blanditiis sint numquam ullam, maxime neque impedit, nobis id? Maxime, commodi! Commodi, quam?</p>
-            
-            <h4>Ejemplos:</h4>
-            <pre class="line-numbers"><code class="language-css">border-radius: 15px 10px 15px 10px;
-border-style: solid;
-border-width: 2px;
-border-color: black;</code></pre>
-			Aquí el resultado del ejemplo del código fuente indicado arriba. En el código fuente de los ejemplos no debe haber ninguna propiedad no explicada anteriormente. Es decir, si para el ejemplo necesitas border-style, border-width y/o border-color, estas propiedades deben ser explicadas con anterioridad
-        </article>
+            <article>
+                <h3>Brightness</h3>
+                <p>Aplica una multiplicación lineal a la imagen, haciendo que parezca más o menos brillante. Un valor de
+                    0% convertirá la imagen completamente a negro. Un valor de 100% no producirá ningún cambio en la
+                    imagen.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: brightness(%);</code></pre>
+                <p>Solo admite un parámetro: </p>
+                <ul>
+                    <li><span>porcentaje</span>: define el porcentaje de brillo aplicado a la imagen.</li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: brightness(20%);
+filter: brightness(70%);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_brightnessUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_brightnessUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+            </article>
 
-    </section>
+            <article>
+                <h3>Contrast</h3>
+                <p>Ajusta el contraste de la imagen. Un valor de 0% convertirá la imagen completamente a negro. Un valor
+                    de 100% no producirá ningún cambio en la imagen.
+                </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: contrast(%)</code></pre>
+                <p>Solo admite un solo parametro: </p>
+                <ul>
+                    <li><span>porcentaje</span>: Define el porcentaje de contraste aplicado a la imagen.</li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: contrast(20%);
+filter: contrast(70%);</code></pre>
+
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_contrastUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_contrastUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+            </article>
+
+            <article>
+                <h3>Drop-shadow</h3>
+                <p>Aplica un efecto de sombra sobre la imagen.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: drop-shadow(px)</code></pre>
+                <p>Algunas de sus propiedades son: </p>
+                <ul>
+                    <li><span>h-shadow</span>: especifica la distancia horizontal en la que se va a aplicar la sombra
+                        sobre la
+                        imagen. Es requerido.</li>
+                    <li><span>y-shadow</span>: especifica la distancia vertical en la que se va a aplicar la sombra
+                        sobre la imagen.
+                        Es requerido.</li>
+                    <li><span>blur-radius</span>: ajusta desenfoque. Cuanto mayor es el desenfoque, más grande y clara
+                        la sombra. Es opcional.</li>
+                    <li><span>spread-radius</span>: ajusta el tamaño de la sombra, por defecto se ajusta la imagen.
+                        Opcional.</li>
+                    <li><span>color</span>: cambia el color de la sombra. Es opcional.</li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: drop-shadow(3px 3px 4px red);
+filter: drop-shadow(10px 7px 9px blue);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_drop-shadowUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_drop-shadowUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+
+            </article>
+
+            <article>
+                <h3>Grayscale</h3>
+                <p>Convierte la imagen a escala de grises.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: grayscale(%)</code></pre>
+                <p>Algunas de sus propiedades son: </p>
+                <ul>
+                    <li><span>porcentaje</span>: define el porcentaje de la conversión.</li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: grayscale(40%);
+filter: grayscale(60%);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_grayscaleUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_grayscaleUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+            </article>
+
+            <article>
+                <h3>Hue-rotate</h3>
+                <p>Aplica una rotación de tono (matiz) al elemento. </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: hue-rotate(deg)</code></pre>
+                <p>Solo admite un parámetro: </p>
+                <ul>
+                    <li><span>grados</span>: define el número de grados alrededor del círculo de colores al que se
+                        ajustarán los
+                        colores de la imagen. El valor por defecto es 0. El valor máximo es 360.
+                    </li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: hue-rotate(40deg);
+filter: hue-rotate(80deg);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_hue-rotateUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_hue-rotateUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+
+            </article>
+
+            <article>
+                <h3>Invert</h3>
+                <p>Invierte los colores de la imagen.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: invert(%)</code></pre>
+                <p>Solo admite un parametro: </p>
+                <ul>
+                    <li><span>porcentaje</span>: define proporción de la conversión. No admite valores negativos.</li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: invert(30%);
+filter: invert(80%);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_invertUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_invertUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+            </article>
+
+            <article>
+                <h3>Opacity</h3>
+                <p>Aplica transparencia a la imagen. </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: opacity(%)</code></pre>
+                <p>Solo admite un parámetro: </p>
+                <ul>
+                    <li>
+                        <span>porcentaje</span>: define proporción de la conversión. Un valor de 0% deja la imagen
+                        transparente. No
+                        permite valores negativos.
+                    </li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: opacity(20%);
+filter: opacity(80%);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_opacityUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_opacityUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+            </article>
+
+            <article>
+                <h3>Saturate</h3>
+                <p>Aplica saturación a la imagen. </p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: saturate(%)</code></pre>
+                <p>Solo admite un parámetro: </p>
+                <ul>
+                    <li>
+                        <span>porcentaje</span>: define proporción de la conversión.
+                    </li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: saturate(10%);
+filter: saturate(400%);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_saturateUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_saturateUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+            </article>
+
+            <article>
+                <h3>Sepia</h3>
+                <p>Convierte la imagen a sepia.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: sepia(%)</code></pre>
+                <p>Solo admite un parámetro: </p>
+                <ul>
+                    <li>
+                        <span>porcentaje</span>: define proporción de la conversión.
+                    </li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: sepia(40%);
+filter: sepia(100%);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_sepiaUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_sepiaUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+            </article>
+
+            <article>
+                <h3>Url</h3>
+                <p>Toma la dirección de un archivo XML que especifica un filtro SVG.</p>
+                <h4>Sintaxis</h4>
+                <pre class="line-numbers"><code class="language-css">filter: url()</code></pre>
+                <p>Solo admite un parámetro: </p>
+                <ul>
+                    <li>
+                        <span>id</span>: id del filtro aplicado.
+                    </li>
+                </ul>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-css">filter: url(#blur)</code></pre>
+                <pre class="line-numbers"><code class="language-html">&lt;svg>
+    &lt;filter id="blur"></filter>
+        &lt;feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
+    &lt;/filter>
+&lt;/svg&gt; </code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_urlUse1 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_urlUse2 filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+
+                <svg>
+                    <filter id="blur1">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+                    </filter>
+                </svg>
+                <svg>
+                    <filter id="blur2">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="50" />
+                    </filter>
+                </svg>
+            </article>
+
+            <article>
+                <h3>Múltiples filtros</h3>
+                <h4>Ejemplo: Blur, sepia y invert</h4>
+
+                <pre
+                    class="line-numbers"><code class="language-css">filter: blur(5px) sepia(80%) invert(80%);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_sepia_blur_invertUse filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <br>
+                <br>
+                <h4>Ejemplo: Invert, saturate, grayscale y hue-rotate</h4>
+
+                <pre
+                    class="line-numbers"><code class="language-css">filter: invert(80%) saturate(400%) grayscale(80%) hue-rotate(240deg);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_invert_saturate_grayscale_hue-rotateUse filter_SVG_original"
+                    src="./img/filter_svg_cerveza.jpg">
+                <br>
+                <br>
+                <h4>Ejemplo: Brightness, opacity, grayscale y saturate</h4>
+
+                <pre
+                    class="line-numbers"><code class="language-css">filter: brightness(80%) opacity(400%) grayscale(80%) saturate(40%);</code></pre>
+                <br>
+                <img class="filter_SVG_original" src="./img/filter_svg_cerveza.jpg">
+                <img class="filter_SVG_brightness_opacity_grayscale_saturateUse filter_SVG_original"
+                    src="./img/filter_svg_cerveza.jpg">
+            </article>
+        </section>
     </main>
     <footer>
         <div>Jaime Rabasco Ronda</div>
